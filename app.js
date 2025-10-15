@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
 // Kết nối MongoDB (chỉ khi không phải trong môi trường kiểm thử)
 if (process.env.NODE_ENV !== 'test') {
-  mongoose.connect(process.env.MONGODB_URL)
+  mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('✅ Kết nối MongoDB thành công'))
     .catch(err => console.error('❌ Lỗi kết nối MongoDB:', err));
 }
