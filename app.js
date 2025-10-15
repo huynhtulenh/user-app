@@ -16,7 +16,15 @@ app.get('/', (req, res) => {
 
 // Kết nối MongoDB (chỉ khi không phải trong môi trường kiểm thử)
 if (process.env.NODE_ENV !== 'test') {
-  mongoose.connect(process.env.MONGO_URI)
+  // Sử dụng MONGODB_URL cho dev, MONGO_URI cho production
+  const mongoUrl = process.env.NODE_ENV === 'production' 
+    ? process.env.MONGO_URI 
+    : process.env.MONGODB_URL;
+  
+  mongoose.connect(mongoUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
     .then(() => console.log('✅ Kết nối MongoDB thành công'))
     .catch(err => console.error('❌ Lỗi kết nối MongoDB:', err));
 }

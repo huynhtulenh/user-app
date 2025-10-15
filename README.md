@@ -26,9 +26,22 @@ npm install
 ```
 
 3. Tạo file `.env` với các biến môi trường:
+
+**Cho môi trường Development:**
 ```env
+NODE_ENV=development
 MONGODB_URL=mongodb://127.0.0.1:27017/user-app
 JWT_SECRET=your-secret-key
+PORT=3000
+SENDGRID_API_KEY=your-sendgrid-api-key
+SENDGRID_FROM_EMAIL=your-email@example.com
+```
+
+**Cho môi trường Production:**
+```env
+NODE_ENV=production
+MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/user-app
+JWT_SECRET=your-production-secret-key
 PORT=3000
 SENDGRID_API_KEY=your-sendgrid-api-key
 SENDGRID_FROM_EMAIL=your-email@example.com
@@ -158,6 +171,20 @@ user-app/
 - **Jest** - Testing framework
 - **Supertest** - HTTP testing
 
+## Cấu hình môi trường
+
+Ứng dụng hỗ trợ hai môi trường chính:
+
+### Development Environment
+- Sử dụng `MONGODB_URL` để kết nối MongoDB local
+- `NODE_ENV=development` hoặc không set (mặc định)
+- Chạy với `npm run dev` (nodemon)
+
+### Production Environment  
+- Sử dụng `MONGO_URI` để kết nối MongoDB Atlas hoặc cloud
+- `NODE_ENV=production`
+- Chạy với `npm start`
+
 ## Lưu ý
 
 - Avatar chỉ chấp nhận file JPG, JPEG, PNG
@@ -165,6 +192,7 @@ user-app/
 - JWT token có thời hạn 1 giờ
 - Cần cài đặt MongoDB để chạy ứng dụng
 - Cần API key SendGrid để gửi email
+- Ứng dụng tự động chọn biến môi trường MongoDB phù hợp dựa trên `NODE_ENV`
 
 ## Troubleshooting
 

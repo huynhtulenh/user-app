@@ -18,9 +18,11 @@
    - Nhấn nút "Đăng nhập"
    - Nếu thành công, bạn sẽ được chuyển đến dashboard
 
-4. **Tạo tài khoản mới:**
-   - Sử dụng API endpoint: `POST /users`
-   - Hoặc sử dụng curl command như trong README chính
+4. **Đăng ký tài khoản mới:**
+   - Truy cập: `http://127.0.0.1:3000/register.html`
+   - Hoặc click "Đăng ký ngay" từ trang login
+   - Điền đầy đủ thông tin và nhấn "Đăng ký"
+   - Sau khi đăng ký thành công, bạn sẽ được chuyển đến trang đăng nhập
 
 ## Tính năng trang login
 
@@ -32,6 +34,21 @@
 - ✅ **Auto Redirect**: Tự động chuyển hướng sau khi đăng nhập
 - ✅ **Token Storage**: Lưu JWT token trong localStorage
 - ✅ **Session Check**: Kiểm tra đăng nhập khi load trang
+- ✅ **Link to Register**: Link đến trang đăng ký
+
+## Tính năng trang đăng ký
+
+- ✅ **Responsive Design**: Hoạt động tốt trên desktop và mobile
+- ✅ **Form Validation**: Kiểm tra tất cả các trường bắt buộc
+- ✅ **Real-time Validation**: Kiểm tra lỗi ngay khi người dùng nhập
+- ✅ **Password Strength**: Hiển thị độ mạnh của mật khẩu
+- ✅ **Email Validation**: Kiểm tra định dạng email hợp lệ
+- ✅ **Password Confirmation**: Xác nhận mật khẩu khớp nhau
+- ✅ **Terms Agreement**: Yêu cầu đồng ý điều khoản sử dụng
+- ✅ **Error Handling**: Hiển thị lỗi chi tiết cho từng trường
+- ✅ **Success Feedback**: Thông báo thành công và redirect
+- ✅ **Loading State**: Hiển thị trạng thái đang xử lý
+- ✅ **Link to Login**: Link đến trang đăng nhập
 
 ## Tính năng Dashboard
 
@@ -46,6 +63,7 @@
 ```
 public/
 ├── login.html      # Trang đăng nhập
+├── register.html   # Trang đăng ký
 └── dashboard.html  # Trang dashboard sau khi đăng nhập
 ```
 
