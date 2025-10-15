@@ -6,6 +6,14 @@ const usersRouter = require('./routes/users');
 const app = express();
 app.use(express.json());
 
+// Serve static files from public directory
+app.use(express.static('public'));
+
+// Route for root path - redirect to login page
+app.get('/', (req, res) => {
+    res.redirect('/login.html');
+});
+
 // Kết nối MongoDB (chỉ khi không phải trong môi trường kiểm thử)
 if (process.env.NODE_ENV !== 'test') {
   mongoose.connect(process.env.MONGODB_URL)
